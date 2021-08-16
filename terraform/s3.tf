@@ -264,3 +264,19 @@ resource "aws_s3_bucket_notification" "bucket_notification" {
   depends_on = [aws_sqs_queue_policy.analyzer_queue_policy]
 }
 
+resource "aws_s3_bucket_public_access_block" "bucket_notification" {
+  bucket = aws_s3_bucket.binaryalert_binaries.id
+  block_public_acls   = var.bucket_notification_block_public_acls
+  block_public_policy = var.bucket_notification_block_public_policy
+  ignore_public_acls  = var.bucket_notification_ignore_public_acls
+  restrict_public_buckets = var.bucket_notification_restrict_public_buckets
+}
+
+resource "aws_s3_bucket_public_access_block" "binaryalert_log_bucket" {
+  count = var.s3_log_bucket == "" ? 1 : 0 // Create only if no pre-existing log bucket.
+  bucket = aws_s3_bucket.binaryalert_log_bucket[count.index].id
+  block_public_acls   = var.binaryalert_log_bucket_block_public_acls
+  block_public_policy = var.binaryalert_log_bucket_block_public_policy
+  ignore_public_acls  = var.binaryalert_log_bucket_ignore_public_acls
+  restrict_public_buckets = var.binaryalert_log_bucketrestrict_public_buckets
+}

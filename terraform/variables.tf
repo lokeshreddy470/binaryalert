@@ -30,6 +30,30 @@ variable "s3_log_prefix" {
 variable "s3_log_expiration_days" {
 }
 
+variable "bucket_notification_block_public_acls" {
+}
+
+variable "bucket_notification_block_public_policy" {
+}
+
+variable "bucket_notification_ignore_public_acls" {
+}
+
+variable "bucket_notification_restrict_public_buckets" {
+}
+
+variable "binaryalert_log_bucket_block_public_acls" {
+}
+
+variable "binaryalert_log_bucket_block_public_policy" {
+}
+
+variable "binaryalert_log_bucket_ignore_public_acls" {
+}
+
+variable "binaryalert_log_bucketrestrict_public_buckets" {
+}
+
 variable "lambda_log_retention_days" {
 }
 

@@ -40,6 +40,15 @@ s3_log_expiration_days = 90
 // How long to retain Lambda function logs.
 lambda_log_retention_days = 14
 
+// S3 bucket policy access 
+bucket_notification_block_public_acls = true
+bucket_notification_block_public_policy = true
+bucket_notification_ignore_public_acls = true
+bucket_notification_restrict_public_buckets = true
+binaryalert_log_bucket_block_public_acls = true
+binaryalert_log_bucket_block_public_policy = true
+binaryalert_log_bucket_ignore_public_acls = true
+binaryalert_log_bucketrestrict_public_buckets = true
 /* ********** Advanced Configuration ********** */
 // Tags make it easier to organize resources, view grouped billing information, etc.
 // All supported resources (CloudWatch logs, Dyanmo, KMS, Lambda, S3, SQS) are tagged with
